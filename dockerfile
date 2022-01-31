@@ -1,5 +1,9 @@
 # ourbase image7
 FROM alpine:latest
+## ENV
+ENV PYTHON_PORT 80
+ENV MSG "HELLO WORLD"
+
 # Install python and pip
 RUN apk add --update py3-pip
 # upgrade pip
@@ -12,4 +16,5 @@ COPY api-get.py /usr/src/app/
 # tell the port numberthe container shouldexpose
 EXPOSE 80
 # runthe application
+#CMD ["python3" , "/usr/src/app/api-get.py", "hello sami" , "80"]
 CMD ["python3" , "/usr/src/app/api-get.py"]
