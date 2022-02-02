@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sami-app
+  labels:
+    app: motd
+spec:
+  containers:
+  - name: motd
+    image: gcr.io/amnay-k8s-337617/rt903

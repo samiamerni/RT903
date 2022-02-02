@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1 ##extensions/v1beta1
+kind: Ingress
+metadata:
+  name: motd-ingress
+  namespace: sami-amerni
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: samr.amnay.fr
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: sami-service
+              servicePort: 80 

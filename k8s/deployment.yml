@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sami-deployment
+  labels:
+    app: motd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: motd
+  template:
+    metadata:
+      labels:
+        app: motd
+    spec:
+      containers:
+      - name: motd
+        image: dockersmi/rt903 #gcr.io/amnay-k8s-337617/rt903
+        ports:
+        - containerPort: 80
+        env: 
+         - name: MSG
+           valueFrom:
+             configMapKeyRef:
+                name: sami-config
+                key: msg
+   

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sami-config
+data:
+  # property-like keys; each key maps to a simple value
+  msg: "LA config de  S.AMER a fonctionné"
